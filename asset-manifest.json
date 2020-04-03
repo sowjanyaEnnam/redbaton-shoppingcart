@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/redbaton-shoppingcart/static/css/main.5f361e03.chunk.css",
+    "main.js": "/redbaton-shoppingcart/static/js/main.6b4c6e34.chunk.js",
+    "main.js.map": "/redbaton-shoppingcart/static/js/main.6b4c6e34.chunk.js.map",
+    "runtime-main.js": "/redbaton-shoppingcart/static/js/runtime-main.92477dbe.js",
+    "runtime-main.js.map": "/redbaton-shoppingcart/static/js/runtime-main.92477dbe.js.map",
+    "static/js/2.0d32ef27.chunk.js": "/redbaton-shoppingcart/static/js/2.0d32ef27.chunk.js",
+    "static/js/2.0d32ef27.chunk.js.map": "/redbaton-shoppingcart/static/js/2.0d32ef27.chunk.js.map",
+    "index.html": "/redbaton-shoppingcart/index.html",
+    "precache-manifest.ddfb73cffaa07a716ea8c79f09ace6b4.js": "/redbaton-shoppingcart/precache-manifest.ddfb73cffaa07a716ea8c79f09ace6b4.js",
+    "service-worker.js": "/redbaton-shoppingcart/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/redbaton-shoppingcart/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.0d32ef27.chunk.js.LICENSE.txt": "/redbaton-shoppingcart/static/js/2.0d32ef27.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/redbaton-shoppingcart/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.92477dbe.js",
+    "static/js/2.0d32ef27.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.6b4c6e34.chunk.js"
+  ]
+}
