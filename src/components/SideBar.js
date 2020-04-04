@@ -5,24 +5,24 @@ class SideBar extends Component {
 
     constructor() {
         super();
-        this.state = {            
-            brands: null,
-            categories: null,
-            features: null,
+        this.state = {
+            brands: [],
+            categories: [],
+            features: [],
             checkedBrands: new Map(),
             checkedCategories: new Map(),
-            checkedFeatures: new Map(), 
+            checkedFeatures: new Map(),
         };
         this.activeTab = false;
         this.count = {
             brandsCount: 0,
             categoriesCount: 0,
             featuresCount: 0,
-        };            
+        };
     }
 
-    componentDidMount = () => {       
-        
+    componentDidMount = () => {
+
         API.brands.then(data => {
             this.setState({ brands: data });
         });
@@ -75,20 +75,22 @@ class SideBar extends Component {
 
     handleChange = (e, filterType) => {
         const isChecked = e.target.checked;
-        const brand = e.target.name;
+        const name = e.target.name;
         switch (filterType) {
             case "brands":
-                this.setState(prevState => ({ checkedBrands: prevState.checkedBrands.set(brand, isChecked) }));
+                this.setState(prevState => ({ checkedBrands: prevState.checkedBrands.set(name, isChecked) }));
                 isChecked ? this.count.brandsCount++ : this.count.brandsCount--;
                 break;
             case "categories":
-                this.setState(prevState => ({ checkedCategories: prevState.checkedCategories.set(brand, isChecked) }));
+                this.setState(prevState => ({ checkedCategories: prevState.checkedCategories.set(name, isChecked) }));
                 isChecked ? this.count.categoriesCount++ : this.count.categoriesCount--;
                 break;
             case "features":
-                this.setState(prevState => ({ checkedFeatures: prevState.checkedFeatures.set(brand, isChecked) }));
+                this.setState(prevState => ({ checkedFeatures: prevState.checkedFeatures.set(name, isChecked) }));
                 isChecked ? this.count.featuresCount++ : this.count.featuresCount--;
                 break;
+            default:
+                // handle default case
         }
     }
 
@@ -101,7 +103,7 @@ class SideBar extends Component {
                             <input
                                 type="checkbox"
                                 className="filled-in"
-                                onChange={(e) => {                                    
+                                onChange={(e) => {
                                     this.handleChange(e, "brands")
 
                                 }} value={brand.name}
@@ -109,7 +111,7 @@ class SideBar extends Component {
                                 checked={this.state.checkedBrands.get(brand.id)}
                             />
                             <span>{brand.name}</span>
-                        </label>                        
+                        </label>
                     </div>
                 )
             })

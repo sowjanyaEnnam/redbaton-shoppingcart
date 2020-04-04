@@ -22,7 +22,7 @@ const cartReducer = (state = initialState, action) => {
             newState.addedItems = newState.addedItems.filter(eachItem => eachItem.id !== action.item.id);
             action.item.quantity++;
             newState.addedItems = [...newState.addedItems, action.item];
-            newState.total = newState.total + +action.item.price;            
+            newState.total = newState.total + +action.item.price;
             break;
 
         case 'REMOVE_ITEM':
@@ -33,12 +33,15 @@ const cartReducer = (state = initialState, action) => {
             }
             newState.total = newState.total - +action.item.price;
             break;
-            
+
         case 'persist/REHYDRATE':
             if(action.payload) {
                 newState.addedItems = action.payload.cart.addedItems;
-                newState.total = action.payload.cart.total;                
+                newState.total = action.payload.cart.total;
             }
+            break;
+        default:
+        // handle default case
     }
     newState.addedItems.sort((item1, item2) => item1.id - item2.id);
     return newState;

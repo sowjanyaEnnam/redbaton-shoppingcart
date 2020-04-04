@@ -17,6 +17,10 @@ const productReducer = (state = initialState, action) => {
         case 'NO_Data':
             newState.filteredProducts = [];
             newState.isSearchActive = false;
+            break;
+        default:
+            newState = {...newState};
+
     }
     return newState;
 }

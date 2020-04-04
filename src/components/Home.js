@@ -11,10 +11,10 @@ class Home extends Component {
             products: [],
             brands: null,
             categories: null,
-            features: null,            
+            features: null,
             actualProducts: null,
             hoveredIndex: null,
-        };        
+        };
     }
 
     componentDidMount = () => {
@@ -58,7 +58,7 @@ class Home extends Component {
         } else {
             products = [...this.state.products];
         }
-        
+
         return (
             products.map((item, index) => {
                 return (
@@ -68,8 +68,10 @@ class Home extends Component {
                             marginBottom: '70px',
                         }}
                     >
-                        <div className="card-image">
-                            <img src={canon} alt={item.name} />
+                        <div className="card-image"
+                            style={{ margin: '2px', }}
+                        >
+                            <img src={canon} alt={item.name} style={{ borderRadius: '4px' }} />
                         </div>
 
                         <div className="card-content"
@@ -94,8 +96,8 @@ class Home extends Component {
                                     </b>
 
                                 </div>
-                            </div>                            
-                            <p className="left-align" style={{ margin:'6px 0px', }}>
+                            </div>
+                            <p className="left-align" style={{ margin: '6px 0px', }}>
                                 <b>Brand : </b>
                                 <span>
                                     {
@@ -111,18 +113,40 @@ class Home extends Component {
                                     }
                                 </span>
                             </p>
-                            <p className="left-align"
-                                style={
-                                    !(this.state.hoveredIndex === index) ? {
+                            <div>
+                                <p className="left-align"                                    
+                                    style={{
                                         whiteSpace: 'nowrap',
                                         overflow: 'hidden',
                                         content: 'txt',
                                         textOverflow: 'ellipsis',
                                         marginTop: '6px',
-                                    } : {marginTop: '6px',}}
-                                onMouseOver={() => { this.setState({ hoveredIndex: index }) }}
-                                onMouseOut={() => { this.setState({ hoveredIndex: null }) }}
-                            >{item.description}</p>
+                                    }}
+                                    onMouseOver={() => { this.setState({ hoveredIndex: index }) }}
+                                    onMouseOut={() => { this.setState({ hoveredIndex: null }) }}
+                                >
+                                    {item.description}
+                                </p>
+                                {
+                                    (this.state.hoveredIndex === index) ? (
+                                        <div
+                                            style={{
+                                                position: 'absolute',
+                                                top: '84%',
+                                                zIndex: '10',
+                                                border: '1px solid grey',
+                                                background: 'grey',
+                                                color: 'white',
+                                                padding: '10px',
+                                                width: '100%',
+                                                borderRadius: '4px',
+                                            }}
+                                        >
+                                            {item.description}
+                                        </div>
+                                    ) : null
+                                }
+                            </div>
                             {
                                 this.displayCartButtons(item)
                             }
@@ -197,7 +221,7 @@ class Home extends Component {
                     >
                         <div className="box">
                             {
-                                this.displayItems()                               
+                                this.displayItems()
                             }
                         </div>
                     </div>
